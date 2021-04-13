@@ -5,7 +5,7 @@ This is a calculator app to help Bengali high-school students to solve mathemeti
 
 | Streamlit Share  | বিজ্ঞান ব্লগ      |        
 | -------------    |:-------------:| 
-| [![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://share.streamlit.io/rafisics/suvat_calculator/main/newton_calc_app_v0.1.py) | [গতির সমীকরণ ক্যালকুলেটর](https://bigganblog.org/2021/03/গতির-সমীকরণ/)  |
+| [![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://share.streamlit.io/rafisics/suvat_calculator/main/suvat_calculator.py) | [গতির সমীকরণ ক্যালকুলেটর](https://bigganblog.org/2021/03/গতির-সমীকরণ/)  |
 
 #### Run the app on local mechine by Anaconda Prompt:
 ```
