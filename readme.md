@@ -10,15 +10,18 @@ This is a calculator app to help Bengali highschool students to solve mathmetica
 ### Developed by 
 [Fuad](https://bigganblog.org/author/koutuholi/) and [Arafat](https://bigganblog.org/author/arafat/) for [Bigganblog.org](https://bigganblog.org/)
 
-### Like it?
-Please share it!
-
 ### Feedback and comments
 Please comment on: [গতির সমীকরণ ক্যালকুলেটর](https://bitly.com/2OZT9Kz)
 
+#### Run the app on local mechine by Anaconda Prompt:
+
+```
+cd <directory path of `code.py` file>
+streamlit run code.py
+```
 
 #### Generate the `requirements.txt` file:
 
 ```
-pipreqs --force --encoding utf8 <path>
+pipreqs --force --encoding utf8 <full path of `code.py` file>
 ```
