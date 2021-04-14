@@ -8,6 +8,9 @@ import math
 def _ask(variable):
     return st.number_input(f'{variable} :', step=None, format='%f')
 
+def ask(*variables):                    #  https://codereview.stackexchange.com/a/259470/230104
+    return [_ask(variable) for variable in variables]
+
 ############
 # Main App #
 ############
@@ -33,9 +36,7 @@ elif known_variables >3:
     st.write('Select only 3 variables.')
 
 if (option_s is False and option_u and option_v and option_a is False and option_t):    # ['Initial Velocity (u)', 'Final Velocity (v)', 'Time (t)']
-    u = ask('Initial Velocity (u)')
-    v = ask('Final Velocity (v)')
-    t = ask('Time (t)')
+    u, v, t = ask('Initial Velocity (u)', 'Final Velocity (v)', 'Time (t)')
     if st.button('Click here to calculate and check the necessary equations') is True:
         st.write("""        The equations which are used to determine the values:
         $$
@@ -52,9 +53,7 @@ if (option_s is False and option_u and option_v and option_a is False and option
         st.write('Acceleration $(a) = \\frac{v-u}{t} =$ ', a)
 
 elif (option_s is False and option_u and option_v and option_a and option_t is False):  # ['Initial Velocity (u)', 'Final Velocity (v)', 'Acceleration (a)']
-    u = ask('Initial Velocity (u)')
-    v = ask('Final Velocity (v)')
-    a = ask('Acceleration (a)')
+    u, v, a = ask('Initial Velocity (u)', 'Final Velocity (v)', 'Acceleration (a)')
     if st.button('Click here to calculate and check the necessary equations') is True:
         st.write("""        The equations which are used to determine the values:
         $$
@@ -72,9 +71,7 @@ elif (option_s is False and option_u and option_v and option_a and option_t is F
         st.write('Time $(t) = \\frac{v-u}{a} =$ ', t)
 
 elif (option_s is False and option_u and option_v is False  and option_a and option_t): # ['Initial Velocity (u)', 'Acceleration (a)', 'Time (t)']
-    u = ask('Initial Velocity (u)')
-    a = ask('Acceleration (a)')
-    t = ask('Time (t)')
+    u, a, t = ask('Initial Velocity (u)', 'Acceleration (a)', 'Time (t)')
     if st.button('Click here to calculate and check the necessary equations') is True:
         st.write("""        The equations which are used to determine the values:
         $$
@@ -87,9 +84,7 @@ elif (option_s is False and option_u and option_v is False  and option_a and opt
         st.write('Final Velocity $(v) = u + at =$ ', v)
 
 elif (option_s is False and option_u is False and option_v and option_a and option_t):  # ['Final Velocity (v)', 'Acceleration (a)', 'Time (t)']
-    v = ask('Final Velocity (v)')
-    a = ask('Acceleration (a)')
-    t = ask('Time (t)')
+    v, a, t = ask('Final Velocity (v)', 'Acceleration (a)', 'Time (t)')
     if st.button('Click here to calculate and check the necessary equations') is True:
         st.write("""        The equations which are used to determine the values:
         $$
@@ -102,9 +97,7 @@ elif (option_s is False and option_u is False and option_v and option_a and opti
         st.write('Initial Velocity $(u) =u - at =$ ', u)
 
 elif (option_s and option_u is False and option_v is False and option_a and option_t):  # ['Displacement (s)', 'Acceleration (a)', 'Time (t)']
-    s = ask('Displacement (s)')
-    a = ask('Acceleration (a)')
-    t = ask('Time (t)')
+    s, a, t = ask('Displacement (s)', 'Acceleration (a)', 'Time (t)')
     if st.button('Click here to calculate and check the necessary equations') is True:
         st.write("""        The equations which are used to determine the values:
         $$
@@ -122,9 +115,7 @@ elif (option_s and option_u is False and option_v is False and option_a and opti
         st.write('Final Velocity $(v) = \\frac{s}{t} + \\frac{1}{2}at =$ ', v)
 
 elif (option_s and option_u is False and option_v and option_a is False and option_t):  # ['Displacement (s)', 'Final Velocity (v)', 'Time (t)']
-    s = ask('Displacement (s)')
-    v = ask('Final Velocity (v)')
-    t = ask('Time (t)')
+    s, v, t = ask('Displacement (s)', 'Final Velocity (v)', 'Time (t)')
     if st.button('Click here to calculate and check the necessary equations') is True:
         st.write("""        The equations which are used to determine the values:
         $$
@@ -142,9 +133,7 @@ elif (option_s and option_u is False and option_v and option_a is False and opti
         st.write('Acceleration $(a)  = \\frac{2(vt-s)}{t^2} =$ ', a)
 
 elif (option_s and option_u is False and option_v and option_a and option_t is False):  # ['Displacement (s)', 'Final Velocity (v)', 'Acceleration (a)']
-    s = ask('Displacement (s)')
-    v = ask('Final Velocity (v)')
-    a = ask('Acceleration (a)')
+    s, v, a = ask('Displacement (s)', 'Final Velocity (v)', 'Acceleration (a)')
     if st.button('Click here to calculate and check the necessary equations') is True:
         st.write("""        The equations which are used to determine the values:
         $$
@@ -165,9 +154,7 @@ elif (option_s and option_u is False and option_v and option_a and option_t is F
         st.write('Time $(t)= \\frac{v}{a} - \\frac{\\sqrt{v^2 - 2as}}{a} =$ ', t)
 
 elif (option_s and option_u and option_v is False and option_a is False and option_t):  # ['Displacement (s)', 'Initial Velocity (u)', 'Time (t)']
-    s = ask('Displacement (s)')
-    u = ask('Initial Velocity (u)')
-    t = ask('Time (t)')
+    s, u, t = ask('Displacement (s)', 'Initial Velocity (u)', 'Time (t)')
     if st.button('Click here to calculate and check the necessary equations') is True:
         st.write("""        The equations which are used to determine the values:
         $$
@@ -185,9 +172,7 @@ elif (option_s and option_u and option_v is False and option_a is False and opti
         st.write('Acceleration $(a)= \\frac{2(s-ut)}{t^2} =$ ', a)
 
 elif (option_s and option_u and option_v is False and option_a and option_t is False):  # ['Displacement (s)', 'Initial Velocity (u)', 'Acceleration (a)']
-    s = ask('Displacement (s)')
-    u = ask('Initial Velocity (u)')
-    a = ask('Acceleration (a)')
+    s, u, a = ask('Displacement (s)', 'Initial Velocity (u)', 'Acceleration (a)')
     if st.button('Click here to calculate and check the necessary equations') is True:
         st.write("""        The equations which are used to determine the values:
         $$
@@ -208,9 +193,7 @@ elif (option_s and option_u and option_v is False and option_a and option_t is F
         st.write('Time $(t) = -\\frac{u}{a} + \\frac{\\sqrt{u^2 + 2as}}{a} =$ ', t)
 
 elif (option_s and option_u and option_v and option_a is False and option_t is False):  # ['Displacement (s)', 'Initial Velocity (u)', 'Final Velocity (v)']
-    s = ask('Displacement (s)')
-    u = ask('Initial Velocity (u)')
-    v = ask('Final Velocity (v)')
+    s, u, v = ask('Displacement (s)', 'Initial Velocity (u)', 'Final Velocity (v)')
     if st.button('Click here to calculate and check the necessary equations') is True:
         st.write("""        The equations which are used to determine the values:
         $$
