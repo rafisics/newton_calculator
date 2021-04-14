@@ -2,11 +2,14 @@ import streamlit as st
 import math
 
 #############
-# Variables #
+# Functions #
 #############
 
-def ask(variable):
+def _ask(variable):
     return st.number_input(f'{variable} :', step=None, format='%f')
+
+def ask(*variables):                    #  https://codereview.stackexchange.com/a/259470/230104
+    return [_ask(variable) for variable in variables]
 
 ############
 # Main App #
@@ -33,9 +36,7 @@ elif known_variables >3:
     st.write('সর্ব্বোচ্চ যেকোন তিনটি চলক নির্বাচন করুন যাদের মান আপনার জানা আছে।')
 
 if (option_s is False and option_u and option_v and option_a is False and option_t):    # ['আদিবেগ (u)', 'শেষবেগ (v)', 'সময় (t)']
-    u = ask('আদিবেগ (u)')
-    v = ask('শেষবেগ (v)')
-    t = ask('সময় (t)')
+    u, v, t = ask('আদিবেগ (u)', 'শেষবেগ (v)', 'সময় (t)')
     if st.button('বাকি দুই চলকের অজানা মান সমীকরণসহ জানতে এখানে ক্লিক করুন') is True:
         st.write("""        মান নির্ণয়ে ব্যবহৃত সমীকরণদ্বয়:
         $$
@@ -52,9 +53,7 @@ if (option_s is False and option_u and option_v and option_a is False and option
         st.write('ত্বরণ $(a) = \\frac{v-u}{t} =$ ', a)
 
 elif (option_s is False and option_u and option_v and option_a and option_t is False):  # ['আদিবেগ (u)', 'শেষবেগ (v)', 'ত্বরণ (a)']
-    u = ask('আদিবেগ (u)')
-    v = ask('শেষবেগ (v)')
-    a = ask('ত্বরণ (a)')
+    u, v, a = ask('আদিবেগ (u)', 'শেষবেগ (v)', 'ত্বরণ (a)')
     if st.button('বাকি দুই চলকের অজানা মান সমীকরণসহ জানতে এখানে ক্লিক করুন') is True:
         st.write("""        মান নির্ণয়ে ব্যবহৃত সমীকরণদ্বয়:
         $$
@@ -72,9 +71,7 @@ elif (option_s is False and option_u and option_v and option_a and option_t is F
         st.write('সময় $(t) = \\frac{v-u}{a} =$ ', t)
 
 elif (option_s is False and option_u and option_v is False  and option_a and option_t): # ['আদিবেগ (u)', 'ত্বরণ (a)', 'সময় (t)']
-    u = ask('আদিবেগ (u)')
-    a = ask('ত্বরণ (a)')
-    t = ask('সময় (t)')
+    u, a, t = ask('আদিবেগ (u)', 'ত্বরণ (a)', 'সময় (t)')
     if st.button('বাকি দুই চলকের অজানা মান সমীকরণসহ জানতে এখানে ক্লিক করুন') is True:
         st.write("""        মান নির্ণয়ে ব্যবহৃত সমীকরণদ্বয়:
         $$
@@ -87,9 +84,7 @@ elif (option_s is False and option_u and option_v is False  and option_a and opt
         st.write('শেষবেগ $(v) = u + at =$ ', v)
 
 elif (option_s is False and option_u is False and option_v and option_a and option_t):  # ['শেষবেগ (v)', 'ত্বরণ (a)', 'সময় (t)']
-    v = ask('শেষবেগ (v)')
-    a = ask('ত্বরণ (a)')
-    t = ask('সময় (t)')
+    v, a, t = ask('শেষবেগ (v)', 'ত্বরণ (a)', 'সময় (t)')
     if st.button('বাকি দুই চলকের অজানা মান সমীকরণসহ জানতে এখানে ক্লিক করুন') is True:
         st.write("""        মান নির্ণয়ে ব্যবহৃত সমীকরণদ্বয়:
         $$
@@ -102,9 +97,7 @@ elif (option_s is False and option_u is False and option_v and option_a and opti
         st.write('আদিবেগ $(u) =u - at =$ ', u)
 
 elif (option_s and option_u is False and option_v is False and option_a and option_t):  # ['সরণ (s)', 'ত্বরণ (a)', 'সময় (t)']
-    s = ask('সরণ (s)')
-    a = ask('ত্বরণ (a)')
-    t = ask('সময় (t)')
+    s, a, t = ask('সরণ (s)', 'ত্বরণ (a)', 'সময় (t)')
     if st.button('বাকি দুই চলকের অজানা মান সমীকরণসহ জানতে এখানে ক্লিক করুন') is True:
         st.write("""        মান নির্ণয়ে ব্যবহৃত সমীকরণদ্বয়:
         $$
@@ -122,9 +115,7 @@ elif (option_s and option_u is False and option_v is False and option_a and opti
         st.write('শেষবেগ $(v) = \\frac{s}{t} + \\frac{1}{2}at =$ ', v)
 
 elif (option_s and option_u is False and option_v and option_a is False and option_t):  # ['সরণ (s)', 'শেষবেগ (v)', 'সময় (t)']
-    s = ask('সরণ (s)')
-    v = ask('শেষবেগ (v)')
-    t = ask('সময় (t)')
+    s, v, t = ask('সরণ (s)', 'শেষবেগ (v)', 'সময় (t)')
     if st.button('বাকি দুই চলকের অজানা মান সমীকরণসহ জানতে এখানে ক্লিক করুন') is True:
         st.write("""        মান নির্ণয়ে ব্যবহৃত সমীকরণদ্বয়:
         $$
@@ -142,9 +133,7 @@ elif (option_s and option_u is False and option_v and option_a is False and opti
         st.write('ত্বরণ $(a)  = \\frac{2(vt-s)}{t^2} =$ ', a)
 
 elif (option_s and option_u is False and option_v and option_a and option_t is False):  # ['সরণ (s)', 'শেষবেগ (v)', 'ত্বরণ (a)']
-    s = ask('সরণ (s)')
-    v = ask('শেষবেগ (v)')
-    a = ask('ত্বরণ (a)')
+    s, v, a = ask('সরণ (s)', 'শেষবেগ (v)', 'ত্বরণ (a)')
     if st.button('বাকি দুই চলকের অজানা মান সমীকরণসহ জানতে এখানে ক্লিক করুন') is True:
         st.write("""        মান নির্ণয়ে ব্যবহৃত সমীকরণদ্বয়:
         $$
@@ -165,9 +154,7 @@ elif (option_s and option_u is False and option_v and option_a and option_t is F
         st.write('সময় $(t)= \\frac{v}{a} - \\frac{\\sqrt{v^2 - 2as}}{a} =$ ', t)
 
 elif (option_s and option_u and option_v is False and option_a is False and option_t):  # ['সরণ (s)', 'আদিবেগ (u)', 'সময় (t)']
-    s = ask('সরণ (s)')
-    u = ask('আদিবেগ (u)')
-    t = ask('সময় (t)')
+    s, u, t = ask('সরণ (s)', 'আদিবেগ (u)', 'সময় (t)')
     if st.button('বাকি দুই চলকের অজানা মান সমীকরণসহ জানতে এখানে ক্লিক করুন') is True:
         st.write("""        মান নির্ণয়ে ব্যবহৃত সমীকরণদ্বয়:
         $$
@@ -185,9 +172,7 @@ elif (option_s and option_u and option_v is False and option_a is False and opti
         st.write('ত্বরণ $(a)= \\frac{2(s-ut)}{t^2} =$ ', a)
 
 elif (option_s and option_u and option_v is False and option_a and option_t is False):  # ['সরণ (s)', 'আদিবেগ (u)', 'ত্বরণ (a)']
-    s = ask('সরণ (s)')
-    u = ask('আদিবেগ (u)')
-    a = ask('ত্বরণ (a)')
+    s, u, a = ask('সরণ (s)', 'আদিবেগ (u)', 'ত্বরণ (a)')
     if st.button('বাকি দুই চলকের অজানা মান সমীকরণসহ জানতে এখানে ক্লিক করুন') is True:
         st.write("""        মান নির্ণয়ে ব্যবহৃত সমীকরণদ্বয়:
         $$
@@ -208,9 +193,7 @@ elif (option_s and option_u and option_v is False and option_a and option_t is F
         st.write('সময় $(t) = -\\frac{u}{a} + \\frac{\\sqrt{u^2 + 2as}}{a} =$ ', t)
 
 elif (option_s and option_u and option_v and option_a is False and option_t is False):  # ['সরণ (s)', 'আদিবেগ (u)', 'শেষবেগ (v)']
-    s = ask('সরণ (s)')
-    u = ask('আদিবেগ (u)')
-    v = ask('শেষবেগ (v)')
+    s, u, v = ask('সরণ (s)', 'আদিবেগ (u)', 'শেষবেগ (v)')
     if st.button('বাকি দুই চলকের অজানা মান সমীকরণসহ জানতে এখানে ক্লিক করুন') is True:
         st.write("""        মান নির্ণয়ে ব্যবহৃত সমীকরণদ্বয়:
         $$
