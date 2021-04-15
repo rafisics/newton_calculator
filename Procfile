@@ -1,1 +1,1 @@
-web: sh setup.sh && streamlit run suvat_calculator.py
+web: streamlit run suvat_calculator.py
