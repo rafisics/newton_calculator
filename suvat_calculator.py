@@ -30,13 +30,13 @@ def bangla_app():
 
     opts = [ ('s', 'সরণ'), ('u', 'আদিবেগ'), ('v', 'শেষবেগ'), ('a', 'ত্বরণ'), ('t', 'সময়') ]
 
-    known_variables = {symbol: st.checkbox(f"{name} ({symbol})") for symbol, name in opts}    # https://codereview.stackexchange.com/a/259505/230104
+    known_variables = {symbol: st.checkbox(f"{name} ({symbol})") for symbol, name in opts}    # https://codereview.stackexchange.com/a/259472/230104
 
     if sum(known_variables.values()) <3:
         st.write('কমপক্ষে যেকোন তিনটি চলক নির্বাচন করুন যাদের মান আপনার জানা আছে।')
     elif sum(known_variables.values()) == 3:
        st.write('আপনার নির্বাচিত ৩টা চলকের মান একই ইউনিট সিস্টেমে লিখুন। সেই অনুযায়ী এই ক্যালকুলেটর বাকি ২টা চলকের মান হিসাব করে জানিয়ে দিবে।')
-    elif sum(known_variables.values()) >3:
+    else:
         st.write('সর্ব্বোচ্চ যেকোন তিনটি চলক নির্বাচন করুন যাদের মান আপনার জানা আছে।')
 
     if check_variables(known_variables, ['u', 'v', 't']):    # ['আদিবেগ (u)', 'শেষবেগ (v)', 'সময় (t)']
@@ -218,21 +218,21 @@ def bangla_app():
             st.write('সময় $(t) = \\frac{2s}{u+v} =$ ', t)
 
 def english_app():
-    st.markdown("<div><h1 style='text-align: center; color: #ff7903; font-family: Solaimanlipi'> SUVAT Calculator </h1></div>", unsafe_allow_html=True)
+    st.markdown("<div><h1 style='text-align: center; color: #ff7903; font-family: Chewy'> SUVAT Calculator </h1></div>", unsafe_allow_html=True)
 
     st.write('This calculator app will help to calculate the variables of the Newtonian equations of linear motion aka SUVAT equations.')
 
     st.write('Select any 3 known-valued variables:')
 
     opts = [ ('s', 'Displacement'), ('u', 'Initial Velocity'), ('v', 'Final Velocity'), ('a', 'Acceleration'), ('t', 'Time') ]
-    
-    known_variables = {symbol: st.checkbox(f"{name} ({symbol})") for symbol, name in opts}    # https://codereview.stackexchange.com/a/259505/230104
+
+    known_variables = {symbol: st.checkbox(f"{name} ({symbol})") for symbol, name in opts}    # https://codereview.stackexchange.com/a/259472/230104
 
     if sum(known_variables.values()) < 3:
         st.write('Select at least 3 variables.')
     elif sum(known_variables.values()) == 3:
        st.write('Enter their values in the same unit system. Accordingly, this calculator will return the values of the remaining 2 variables. ')
-    elif sum(known_variables.values()) > 3:
+    else:
         st.write('Select only 3 variables.')
 
     if check_variables(known_variables, ['u', 'v', 't']):    # ['Initial Velocity (u)', 'Final Velocity (v)', 'Time (t)']
@@ -413,7 +413,7 @@ def english_app():
             st.write('Acceleration $(a) = \\frac{v^2 - u^2}{2s} =$ ', a)
             st.write('Time $(t) = \\frac{2s}{u+v} =$ ', t)
 
-lang = st.sidebar.radio('Translate to:', ['বাংলা', 'English'], index=0)
+lang = st.sidebar.radio('Select Language:', ['বাংলা', 'English'], index=0)
 # st.markdown("<div id='linkto_top'></div>", unsafe_allow_html=True)
 if lang == 'বাংলা':
     bangla_app()
