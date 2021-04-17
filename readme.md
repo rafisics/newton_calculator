@@ -3,9 +3,20 @@ This is a calculator app to help Bengali high-school students to solve mathemeti
 
 ### Check the app here:
 
-| Streamlit Share  | Heroku       | বিজ্ঞান ব্লগ       |          
-| :-------------: | :-------------: |:-------------: | 
-| [![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://share.streamlit.io/rafisics/suvat_calculator/main/suvat_calculator.py) | [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://suvat-calculator.herokuapp.com) | [![Bigganblog](https://github.com/rafisics/suvat_calculator/blob/main/img/bigganblog_badge_black_white.png)](https://bigganblog.org/2021/03/গতির-সমীকরণ/)  |
+<table>
+<thead>
+    <tr>
+      <th>Streamlit Share</th><th>Heroku</th><th>বিজ্ঞান ব্লগ</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center;"><a href="https://share.streamlit.io/rafisics/suvat_calculator/main/suvat_calculator.py" target="_blank"><img alt="Streamlit App" src="https://static.streamlit.io/badges/streamlit_badge_black_white.svg" /></a></td>
+      <td style="text-align: center;"><a href="https://suvat-calculator.herokuapp.com" target="_blank"><img alt="Deploy" src="https://www.herokucdn.com/deploy/button.svg" /></a></td>
+      <td style="text-align: center;"><a href="https://bigganblog.org/2021/03/গতির-সমীকরণ" target="_blank"><img alt="Bigganblog" src="https://raw.githubusercontent.com/rafisics/suvat_calculator/main/img/bigganblog_badge_black_white.png" /></a></td>
+    </tr>
+  </tbody>
+</table>
 
 #### Run the app on local mechine by Anaconda Prompt:
 ```
