@@ -23,7 +23,7 @@ def check_variables(variables, values):    #  https://codereview.stackexchange.c
 
 strings = {
   'বাংলা': {
-    'title': "<div><h1 style='text-align: center; color: #ff7903; font-family: Solaimanlipi'>গতি-সমীকরণ ক্যালকুলেটর </h1></div>",
+    'title': "<div><h1 style='text-align: center; color: #ff7903; font-family: Solaimanlipi'> গতি-সমীকরণ ক্যালকুলেটর </h1></div>",
     'about': 'নিউটনিয়ান গতি-সমীকরণগুলো (SUVAT সমীকরণ) দিয়ে সমত্বরণে চলমান বস্তুর গতীয় চলকগুলো হিসাব করতে এই ক্যালকুলেটরটি আপনাকে সাহায্য করবে।',
     'select': 'যে চলক তিনটির মান আপনি জানেন, তাদেরকে নির্বাচন করুন:',
     's': 'সরণ',
@@ -41,7 +41,7 @@ strings = {
     'inserting': 'আপনার দেওয়া মানগুলো উক্ত সমীকরণদ্বয়ে বসিয়ে পাই:',
   },
   'English': {
-    'title': "<div><h1 style='text-align: center; color: #ff7903; font-family: Chewy'> SUVAT CALCULATOR </h1></div>",
+    'title': "<div><h1 style='text-align: center; color: #ff7903; font-family: Chewy'> SUVAT Calculator </h1></div>",
     'about': 'This calculator app will help to calculate the variables of the Newtonian equations of linear motion aka SUVAT equations.',
     'select': 'Select any 3 known-valued variables:',
     's': 'Displacement',
