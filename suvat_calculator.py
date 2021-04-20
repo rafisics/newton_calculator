@@ -250,7 +250,7 @@ def app(strs):
             try:
                 t = (2*s)/(u+v)
             except ZeroDivisionError:
-                st.write(strs['here']+' $u=v=0$ '+strs['notallow'])
+                st.write(strs['here']+' $u+v=0$ '+strs['notallow'])
                 t = None
             st.write(strs['inserting'])
             st.write( strs['a']+' $(a) = \\frac{v^2 - u^2}{2s} =$ ', a)
