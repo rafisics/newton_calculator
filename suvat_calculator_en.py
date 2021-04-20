@@ -21,7 +21,7 @@ def check_variables(variables, values):    #  https://codereview.stackexchange.c
 # Main App #
 ############
 
-st.markdown("<div><h1 style='text-align: center; color: #ff7903; font-family: Solaimanlipi'> SUVAT Calculator </h1></div>", unsafe_allow_html=True)
+st.markdown("<div><h1 style='text-align: center; color: #ff7903; font-family: Chewy'> SUVAT Calculator </h1></div>", unsafe_allow_html=True)
 
 st.write('This calculator app will help to calculate the variables of the Newtonian equations of linear motion aka SUVAT equations.')
 
