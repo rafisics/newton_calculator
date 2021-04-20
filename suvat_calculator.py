@@ -52,7 +52,7 @@ strings = {
     'min3': 'Select at least 3 variables.',
     'insert': 'Enter their values in the same unit system. Accordingly, this calculator will return the values of the remaining 2 variables.',
     'max3': 'Select only 3 variables.',
-    'button': 'Click here to calculate and check the necessary equations',
+    'button': 'Click here to get the values of the rest two variables with equations',
     'eqns': 'The equations which are used to determine the values:\n',
     'here': 'Here',
     'notallow': 'is not allowed.',
