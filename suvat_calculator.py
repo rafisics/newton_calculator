@@ -287,7 +287,7 @@ def layout(*args):
     <style>
         MainMenu {visibility: hidden;}
         footer {visibility: hidden;}
-        .stApp { bottom: 50px; }
+        .stApp { bottom: 60px; }
     </style>
     """
 
