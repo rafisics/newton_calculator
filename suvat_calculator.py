@@ -1,5 +1,8 @@
 import streamlit as st
 import math
+from htbuilder import HtmlElement, div, ul, li, br, hr, a, p, img, styles, classes, fonts
+from htbuilder.units import percent, px
+from htbuilder.funcs import rgba, rgb
 
 #############
 # Functions #
@@ -17,13 +20,23 @@ def check_variables(variables, values):    #  https://codereview.stackexchange.c
             return False
     return True
 
+#########
+# Fonts #
+#########
+
+st.markdown("""
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Atma:wght@600&display=swap');
+</style>
+""", unsafe_allow_html=True)
+
 ##############
 # Dictionary #
 ##############
 
 strings = {
   'বাংলা': {
-    'title': "<div><h1 style='text-align: center; color: #ff7903; font-family: Solaimanlipi'> গতি-সমীকরণ ক্যালকুলেটর </h1></div>",
+    'title': "<div><h1 style='text-align: center; color: #ff7903; font-family: Atma'> গতি-সমীকরণ ক্যালকুলেটর </h1></div>",
     'about': 'নিউটনিয়ান গতি-সমীকরণগুলো (SUVAT সমীকরণ) দিয়ে সমত্বরণে চলমান বস্তুর গতীয় চলকগুলো হিসাব করতে এই ক্যালকুলেটরটি আপনাকে সাহায্য করবে।',
     'select': 'যে চলক তিনটির মান আপনি জানেন, তাদেরকে নির্বাচন করুন:',
     's': 'সরণ',
@@ -41,7 +54,7 @@ strings = {
     'inserting': 'আপনার দেওয়া মানগুলো উক্ত সমীকরণদ্বয়ে বসিয়ে পাই:',
   },
   'English': {
-    'title': "<div><h1 style='text-align: center; color: #ff7903; font-family: Chewy'> SUVAT Calculator </h1></div>",
+    'title': "<div><h1 style='text-align: center; color: #ff7903; font-family: Atma'> SUVAT Calculator </h1></div>",
     'about': 'This calculator app will help to calculate the variables of the Newtonian equations of linear motion aka SUVAT equations.',
     'select': 'Select any 3 known-valued variables:',
     's': 'Displacement',
@@ -258,3 +271,55 @@ def app(strs):
 
 lang = st.sidebar.radio('Select Language:', ['বাংলা', 'English'], index=0)
 app(strings[lang])
+
+##########
+# Footer #                         #  https://discuss.streamlit.io/t/st-footer/6447
+##########
+
+def image(src_as_string, **style):
+    return img(src=src_as_string, style=styles(**style))
+
+def link(link, text, **style):
+    return a(_href=link, _target="_blank", style=styles(**style))(text)
+
+def layout(*args):
+    style = """
+    <style>
+        MainMenu {visibility: hidden;}
+        footer {visibility: hidden;}
+        .stApp { bottom: 50px; }
+    </style>
+    """
+
+    style_div = styles(
+        position="fixed",
+        right=0,
+        bottom=0,
+        margin=px(0, 15, 0, 0),
+        text_align="center",
+        opacity=0.4,
+    )
+
+    body = p()
+    foot = div(
+        style=style_div
+    )(
+        body
+    )
+
+    st.markdown(style, unsafe_allow_html=True)
+    for arg in args:
+        if isinstance(arg, str):
+            body(arg)
+        elif isinstance(arg, HtmlElement):
+            body(arg)
+    st.markdown(str(foot), unsafe_allow_html=True)
+
+def footer():
+    myargs = [
+        link("https://bigganblog.org/2021/03/গতির-সমীকরণ", image('https://raw.githubusercontent.com/rafisics/suvat_calculator/main/img/bigganblog_badge_black_white.png',)),
+    ]
+    layout(*myargs)
+
+if __name__ == "__main__":
+    footer()
