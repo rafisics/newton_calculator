@@ -25,5 +25,5 @@ streamlit run code.py
 ```
 #### Generate the `requirements.txt` file:
 ```
-pipreqs --force --encoding utf8 <full path of `code.py` file>
+pipreqs --force --encoding utf8 <directory path of `code.py` file>
 ```
