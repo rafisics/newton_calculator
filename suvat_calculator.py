@@ -1,5 +1,6 @@
 import streamlit as st
 import math
+import toml
 from htbuilder import HtmlElement, div, ul, li, br, hr, a, p, img, styles, classes, fonts
 from htbuilder.units import percent, px
 from htbuilder.funcs import rgba, rgb
@@ -20,15 +21,17 @@ def check_variables(variables, values):    #  https://codereview.stackexchange.c
             return False
     return True
 
-#########
-# Fonts #
-#########
-
-st.markdown("""
+##########
+# Styles #
+##########
+primaryColor = toml.load(".streamlit/config.toml")['theme']['primaryColor']
+s = f"""
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Atma:wght@600&display=swap');
-</style>
-""", unsafe_allow_html=True)
+div.stButton > button:first-child {{ border: 5px solid {primaryColor}; border-radius:20px 20px 20px 20px; }}
+<style>
+"""
+st.markdown(s, unsafe_allow_html=True)
 
 ##############
 # Dictionary #
@@ -36,7 +39,7 @@ st.markdown("""
 
 strings = {
   'বাংলা': {
-    'title': "<div><h1 style='text-align: center; color: #ff7903; font-family: Atma'> গতি-সমীকরণ ক্যালকুলেটর </h1></div>",
+    'title': f"<div><h1 style='text-align: center; color: {primaryColor}; font-family: Atma'> গতি-সমীকরণ ক্যালকুলেটর </h1></div>",
     'about': 'নিউটনিয়ান গতি-সমীকরণগুলো (SUVAT সমীকরণ) দিয়ে সমত্বরণে চলমান বস্তুর গতীয় চলকগুলো হিসাব করতে এই ক্যালকুলেটরটি আপনাকে সাহায্য করবে।',
     'select': 'যে চলক তিনটির মান আপনি জানেন, তাদেরকে নির্বাচন করুন:',
     's': 'সরণ',
@@ -54,7 +57,7 @@ strings = {
     'inserting': 'আপনার দেওয়া মানগুলো উক্ত সমীকরণদ্বয়ে বসিয়ে পাই:',
   },
   'English': {
-    'title': "<div><h1 style='text-align: center; color: #ff7903; font-family: Atma'> SUVAT Calculator </h1></div>",
+    'title': f"<div><h1 style='text-align: center; color: {primaryColor}; font-family: Atma'> Motion-Equation Calculator </h1></div>",
     'about': 'This calculator app will help to calculate the variables of the Newtonian equations of linear motion aka SUVAT equations.',
     'select': 'Select any 3 known-valued variables:',
     's': 'Displacement',
@@ -297,7 +300,7 @@ def layout(*args):
         bottom=0,
         margin=px(0, 15, 0, 0),
         text_align="center",
-        opacity=0.4,
+        opacity=0.5,
     )
 
     body = p()
