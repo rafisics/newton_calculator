@@ -1,6 +1,5 @@
 import streamlit as st
 import math
-import toml
 from htbuilder import HtmlElement, div, ul, li, br, hr, a, p, img, styles, classes, fonts
 from htbuilder.units import percent, px
 from htbuilder.funcs import rgba, rgb
@@ -24,7 +23,8 @@ def check_variables(variables, values):    #  https://codereview.stackexchange.c
 ##########
 # Styles #
 ##########
-primaryColor = toml.load(".streamlit/config.toml")['theme']['primaryColor']
+
+primaryColor = st.get_option("theme.primaryColor")
 s = f"""
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Atma:wght@600&display=swap');
