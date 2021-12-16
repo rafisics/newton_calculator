@@ -296,7 +296,7 @@ def layout(*args):
 
     style_div = styles(
         position="fixed",
-        right=0,
+        left=0,
         bottom=0,
         margin=px(0, 15, 0, 0),
         text_align="center",
