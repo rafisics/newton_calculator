@@ -100,7 +100,7 @@ def app(strs):
             st.write(strs['eqns'] +
             '$$\n' +
             's = \\frac{1}{2}(u+v)t, \\quad a = \\frac{v-u}{t}' +
-            '$$')
+            '\n$$')
             s = 0.5*(u+v)*t
             try:
                 a = (v-u)/t
@@ -117,7 +117,7 @@ def app(strs):
             st.write(strs['eqns'] +
             '$$\n' +
             's = \\frac{v^2-u^2}{2a}, \\quad t = \\frac{v-u}{a}' +
-            '$$')
+            '\n$$')
             try:
                 s = (v*v - u*u)/(2*a)
                 t = (v - u)/a
@@ -135,7 +135,7 @@ def app(strs):
             st.write(strs['eqns'] +
             '$$\n' +
             's = ut + \\frac{1}{2}at^2, \\quad v = u + at' +
-            '$$')
+            '\n$$')
             s = u*t + 0.5*a*t*t
             v = u + a*t
             st.write(strs['inserting'])
@@ -148,7 +148,7 @@ def app(strs):
             st.write(strs['eqns'] +
             '$$\n' +
             's = vt - \\frac{1}{2}at^2, \\quad u= v - at' +
-            '$$')
+            '\n$$')
             s = v*t - 0.5*a*t*t
             u = v - a*t
             st.write(strs['inserting'])
@@ -161,7 +161,7 @@ def app(strs):
             st.write(strs['eqns'] +
             '$$\n' +
             'u = \\frac{s}{t} - \\frac{1}{2}at, \\quad v = \\frac{s}{t} + \\frac{1}{2}at' +
-            '$$')
+            '\n$$')
             try:
                 u = (s - 0.5*a*t*t)/t
                 v = (s + 0.5*a*t*t)/t
@@ -179,7 +179,7 @@ def app(strs):
             st.write(strs['eqns'] +
             '$$\n' +
             'u = \\frac{2s}{t} - v, \\quad a = \\frac{2(vt-s)}{t^2}' +
-            '$$')
+            '\n$$')
             try:
                 u = (2*s)/t - v
                 a = 2*(v*t-s)/(t*t)
@@ -197,7 +197,7 @@ def app(strs):
             st.write(strs['eqns'] +
             '$$\n' +
             'u = \\sqrt{v^2 -2as}, \\quad t = \\frac{v}{a} - \\frac{\\sqrt{v^2 - 2as}}{a}' +
-            '$$')
+            '\n$$')
             try:
                 u = math.sqrt(v*v - 2*a*s)
                 t = v/a - math.sqrt(v*v - 2*a*s)/a
@@ -218,7 +218,7 @@ def app(strs):
             st.write(strs['eqns'] +
             '$$\n' +
             'v = \\frac{2s}{t}-u, \\quad a = \\frac{2(s-ut)}{t^2}' +
-            '$$')
+            '\n$$')
             try:
                 v = (2*s)/t - u
                 a = 2*(s-u*t)/(t*t)
@@ -236,7 +236,7 @@ def app(strs):
             st.write(strs['eqns'] +
             '$$\n' +
             'v = \\sqrt{u^2 + 2as}, \\quad t = -\\frac{u}{a} + \\frac{\\sqrt{u^2 + 2as}}{a}' +
-            '$$')
+            '\n$$')
             try:
                 v = math.sqrt(u*u + 2*a*s)
                 t = -u/a + math.sqrt(u*u +2*a*s)/a
@@ -257,7 +257,7 @@ def app(strs):
             st.write(strs['eqns'] +
             '$$\n' +
             'a = \\frac{v^2 - u^2}{2s}, \\quad t = \\frac{2s}{u+v}' +
-            '$$')
+            '\n$$')
             try:
                 a = (v*v - u*u)/(2*s)
             except ZeroDivisionError:
